@@ -1,0 +1,146 @@
+<!DOCTYPE html> <!-- Declara el tipo de documento como HTML5. -->
+<html lang="en"> <!-- Define el idioma principal del documento como inglés. -->
+<head> <!-- Contiene metadatos y enlaces a recursos externos. -->
+    <meta charset="UTF-8"> <!-- Especifica la codificación de caracteres como UTF-8. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que la página sea responsive. -->
+    <title>IE Task Management</title> <!-- Título de la página que aparece en la pestaña del navegador. -->
+    
+    <!-- Favicon para la página web -->
+    <link rel="shortcut icon" href="https://ai.inventec.com/wp-content/uploads/2022/06/favicon-1.png"> <!-- Ícono que aparece en la pestaña del navegador. -->
+    
+    <!-- Enlace a la hoja de estilos CSS externa -->
+    <link rel="stylesheet" href="styles.css"> <!-- Enlaza el archivo CSS para estilos visuales. -->
+    
+    <!-- Biblioteca jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Incluye la biblioteca jQuery para simplificar el manejo de JavaScript. -->
+    
+    <!-- Enlace al archivo JavaScript principal para la funcionalidad -->
+    <script src="script.js" defer></script> <!-- Enlaza el archivo JavaScript y lo ejecuta después de que el HTML esté completamente cargado. -->
+</head>
+<body> <!-- Contiene el contenido visible de la página. -->
+    <!-- Page header with company logo and title -->
+  
+        <!-- Encabezado de la página con el logo de la empresa y el título -->
+        <header>
+            <center> <!-- Centra el contenido (no recomendado en HTML5, pero se usa aquí). -->
+                <!-- Logos decorativos -->
+                <img src="https://png.pngtree.com/png-clipart/20210404/original/pngtree-clover-png-image_6177695.png" width="75px"> <!-- Imagen decorativa de un trébol. -->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Inventec.png" 
+                     alt="Inventec Logo" width="250px"> <!-- Logo de la empresa Inventec. -->
+                <img src="https://png.pngtree.com/png-clipart/20210404/original/pngtree-clover-png-image_6177695.png" width="75px"> <!-- Imagen decorativa de un trébol. -->
+            </center>
+            <h1>IE Pending's Follow-Up</h1> <!-- Título principal de la página. -->
+        </header>
+    
+       <!-- Formulario para crear o editar tareas -->
+       <form id="taskForm"> <!-- Formulario con ID `taskForm` para manejar la creación y edición de tareas. -->
+        <!-- Campo oculto para almacenar el ID de la tarea -->
+        <input type="hidden" id="taskId"> <!-- Campo oculto para almacenar el ID de la tarea durante la edición. -->
+    
+        <!-- Fila para título y descripción corta -->
+        <div class="form-row"> <!-- Contenedor para una fila de campos del formulario. -->
+            <input type="text" id="taskTitle" placeholder="Título | Title" class="x3y1" required> <!-- Campo para el título de la tarea. -->
+            <input type="text" id="taskDescS" placeholder="Descripción corta | Short description" class="x5y1" required> <!-- Campo para la descripción corta. -->
+        </div>
+    
+        <!-- Fila para descripción larga -->
+        <div class="form-row">
+            <input type="text" id="taskDescL" placeholder="Descripción | Description" class="x3y3" required> <!-- Campo para la descripción larga. -->
+        </div>
+    
+        <!-- Fila para prioridad, estado, propietario y departamento -->
+        <div class="form-row">
+            <!-- Selector de prioridad -->
+            <select id="taskPriority" class="x2y1" required>
+                <option value="" disabled selected>Priority</option> <!-- Opción por defecto deshabilitada. -->
+                <option value="1">1 - No matter</option> <!-- Prioridad 1. -->
+                <option value="2">2 -  Low</option> <!-- Prioridad 2. -->
+                <option value="3">3 - Medium</option> <!-- Prioridad 3. -->
+                <option value="4">4 - High</option> <!-- Prioridad 4. -->
+                <option value="5">5 - Critical</option> <!-- Prioridad 5. -->
+            </select>
+            
+            <!-- Selector de estado -->
+            <select id="taskStatus" class="x2y1" required>
+                <option value="" disabled selected>Status</option> <!-- Opción por defecto deshabilitada. -->
+                <option value="NEW">NEW</option> <!-- Estado: Nueva. -->
+                <option value="WIP">WIP</option> <!-- Estado: En progreso. -->
+                <option value="HOLD ON">ON HOLD</option> <!-- Estado: En espera. -->
+                <option value="TSHOOT">TSHOOT</option> <!-- Estado: Solución de problemas. -->
+                <option value="VALIDATED">VALIDATED</option> <!-- Estado: Validada. -->
+                <option value="PENDING VENDOR">PENDING VENDOR</option> <!-- Estado: Pendiente del proveedor. -->
+                <option value="PENDING CUSTOMER">PENDING CUSTOMER</option> <!-- Estado: Pendiente del cliente. -->
+                <option value="ESCALATED">ESCALATED</option> <!-- Estado: Escalada. -->
+            </select>
+            
+            <!-- Selector de propietario -->
+            <select id="taskOwner" class="x3y1" required>
+                <option value="" disabled selected>Propietario | Owner</option> <!-- Opción por defecto deshabilitada. -->
+                <option value="Danny Chang">Danny Chang</option> <!-- Propietario: Danny Chang. -->
+                <option value="Luz Muniz">Luz Muniz</option> <!-- Propietario: Luz Muniz. -->
+                <option value="Jonathan Hernandez">Jonathan Hernandez</option> <!-- Propietario: Jonathan Hernandez. -->
+                <option value="Marisol Pacheco">Marisol Pacheco</option> <!-- Propietario: Marisol Pacheco. -->
+                <option value="Eduardo Martinez">Eduardo Martinez</option> <!-- Propietario: Eduardo Martinez. -->
+                <option value="Juan Rocha">Juan Rocha</option> <!-- Propietario: Juan Rocha. -->
+                <option value="Soriel Garcia">Soriel Garcia</option> <!-- Propietario: Soriel Garcia. -->
+                <option value="Jonathan Palacios">Jonathan Palacios</option> <!-- Propietario: Jonathan Palacios. -->
+                <option value="Wendy Santos">Wendy Santos</option> <!-- Propietario: Wendy Santos. -->
+                <option value="Alexis Garcia">Alexis Garcia</option> <!-- Propietario: Alexis Garcia. -->
+            </select>
+            
+            <!-- Selector de departamento -->
+            <select id="taskDept" class="x2y1" required>
+                <option value="" disabled selected>Department</option> <!-- Opción por defecto deshabilitada. -->
+                <option value="IE">IE</option> <!-- Departamento: IE. -->
+            </select>
+        </div>
+    
+        <!-- Fila para cliente, solicitante y área -->
+        <div class="form-row">
+            <input type="text" id="taskCustomer" placeholder="Cliente | Customer" class="x3y1" required> <!-- Campo para el cliente. -->
+            <input type="text" id="taskRequester" placeholder="Solicitante | Requester" class="x3y1" required> <!-- Campo para el solicitante. -->
+            <input type="text" id="taskArea" placeholder="Área | Area" class="x3y1" required> <!-- Campo para el área. -->
+        </div>
+    
+        <!-- Fila para URL y archivo adjunto -->
+        <div class="form-row">
+            <input type="text" id="taskUrl" placeholder="URL | URL" class="x5y1"> <!-- Campo para la URL. -->
+            <input type="file" id="taskAttachment" class="x3y1"> <!-- Campo para subir un archivo adjunto. -->
+        </div>
+
+        <!-- Fila para TDT (Fecha y hora objetivo) -->
+        <div class="form-row">
+            <input type="datetime-local" id="taskTDT" placeholder="Fecha y hora objetivo | Target Day Time" class="x3y1" required> <!-- Campo para la fecha y hora objetivo. -->
+        </div>
+    
+        <!-- Botón para enviar el formulario -->
+        <button type="submit">Guardar | Save</button> <!-- Botón para enviar el formulario. -->
+    </form>
+    
+    <!-- Tabla para mostrar las tareas -->
+    <table id="taskList"> <!-- Tabla con ID `taskList` para mostrar las tareas. -->
+        <thead> <!-- Encabezado de la tabla. -->
+            <tr>
+                <th>ID</th> <!-- Columna para el ID de la tarea. -->
+                <th>Título | Title</th> <!-- Columna para el título de la tarea. -->
+                <th>Descripción corta | Short Description</th> <!-- Columna para la descripción corta. -->
+                <th>Descripción | Description</th> <!-- Columna para la descripción larga. -->
+                <th>Prioridad | Priority</th> <!-- Columna para la prioridad. -->
+                <th>Propietario | Owner</th> <!-- Columna para el propietario de la tarea. -->
+                <th>Departamento | Department</th> <!-- Columna para el departamento. -->
+                <th>Cliente | Customer</th> <!-- Columna para el cliente. -->
+                <th>Solicitante | Requester</th> <!-- Columna para el solicitante. -->
+                <th>Área | Area</th> <!-- Columna para el área. -->
+                <th>URL</th> <!-- Columna para la URL. -->
+                <th>Archivo adjunto | Attachment</th> <!-- Columna para el archivo adjunto. -->
+                <th>Estado | Status</th> <!-- Columna para el estado de la tarea. -->
+                <th>Fecha y hora objetivo | Target Day Time</th> <!-- Columna para la fecha y hora objetivo. -->
+                <th>Acciones | Actions</th> <!-- Columna para las acciones (editar, eliminar, completar). -->
+            </tr>
+        </thead>
+        <tbody> <!-- Cuerpo de la tabla. -->
+            <!-- Las filas de tareas se llenarán aquí mediante JavaScript -->
+        </tbody>
+    </table>
+</body> <!-- Fin del cuerpo del documento. -->
+</html> <!-- Fin del documento HTML. -->
