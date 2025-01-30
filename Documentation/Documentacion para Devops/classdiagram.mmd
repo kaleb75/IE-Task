@@ -1,0 +1,47 @@
+classDiagram
+    class Task {
+        +int id
+        +string title
+        +string desc_s
+        +string desc_l
+        +int priority
+        +string owner
+        +string dept
+        +string customer
+        +string requester
+        +string area
+        +string url
+        +string attachment
+        +string status
+        +datetime tdt
+        +datetime cdt
+        +datetime udt
+    }
+
+    class TaskLog {
+        +int id
+        +int task_id
+        +string action
+        +datetime timestamp
+    }
+
+    class TaskController {
+        +getTasks()
+        +getTaskById(id)
+        +createTask(taskData)
+        +updateTask(id, taskData)
+        +deleteTask(id)
+        +markTaskAsCompleted(id)
+    }
+
+    class TaskView {
+        +renderTasks(tasks)
+        +showEditForm(task)
+        +showDeleteConfirmation()
+        +showCompleteConfirmation()
+    }
+
+    Task "1" *-- "many" TaskLog : Registra
+    TaskController --> Task : Gestiona
+    TaskController --> TaskLog : Registra acciones
+    TaskView --> TaskController : Solicita datos
