@@ -1,0 +1,4 @@
+graph LR
+    A[Frontend] -->|HTTP Requests| B[Backend]
+    B -->|Consulta/Actualiza| C[(Base de Datos)]
+    B -->|Registra acciones| D[(Logs)]
