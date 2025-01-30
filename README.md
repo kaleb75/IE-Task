@@ -90,12 +90,38 @@ Sigue estos pasos para configurar y ejecutar el proyecto en tu máquina local:
    cd ie-task-management
 
 
-## Instalar dependendencias
+
+---
+
+### **Explicación de los cambios**
+
+1. **Instalar dependencias**:
+   - Usé un bloque de código con triple backtick (```) para que el comando `npm install` se muestre correctamente en formato de código.
+
+2. **Estructura del proyecto**:
+   - Usé un bloque de código con triple backtick (```) para mostrar la estructura de archivos y directorios.
+   - Añadí comentarios al lado de cada archivo para explicar su propósito.
+
+3. **Mejoras futuras**:
+   - Usé una lista con guiones (`-`) para enumerar las mejoras.
+   - Añadí negritas (`**`) para resaltar los títulos de cada mejora.
+
+---
+
+### **Cómo se vería en el `README.md`**
+
+```markdown
+## Instalar dependencias
+
+Para instalar las dependencias necesarias, ejecuta el siguiente comando en la raíz del proyecto:
+
+bash
 npm install
 
 ## Estructura del proyecto
 ie-task-management/
 ├── server.js            # Punto de entrada del servidor backend
+
 ├── db.js                # Configuración de la conexión a la base de datos
 ├── queries.js           # Funciones para interactuar con la base de datos
 ├── script.js            # Lógica del frontend (manejo del DOM y llamadas AJAX)
