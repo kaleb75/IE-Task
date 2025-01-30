@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant Usuario
+    participant TaskView
+    participant TaskController
+    participant Task
+    participant TaskLog
+
+    Usuario ->> TaskView: Completa formulario y envía
+    TaskView ->> TaskController: Solicita crear tarea
+    TaskController ->> Task: Crea nueva tarea
+    Task -->> TaskController: Retorna tarea creada
+    TaskController ->> TaskLog: Registra acción "CREATE"
+    TaskLog -->> TaskController: Confirma registro
+    TaskController -->> TaskView: Retorna confirmación
+    TaskView -->> Usuario: Muestra mensaje de éxito
