@@ -1,0 +1,116 @@
+openapi: 3.0.0
+info:
+  title: Sistema de Gestión de Tareas
+  version: 1.0.0
+servers:
+  - url: http://localhost:2000
+paths:
+  /tasks:
+    get:
+      summary: Obtener todas las tareas
+      responses:
+        '200':
+          description: Lista de tareas
+    post:
+      summary: Crear una nueva tarea
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task'
+      responses:
+        '201':
+          description: Tarea creada
+  /tasks/{id}:
+    get:
+      summary: Obtener una tarea por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Detalles de la tarea
+    put:
+      summary: Actualizar una tarea
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task'
+      responses:
+        '200':
+          description: Tarea actualizada
+    delete:
+      summary: Eliminar una tarea
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Tarea eliminada
+  /tasks/{id}/complete:
+    put:
+      summary: Marcar una tarea como completada
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Tarea completada
+components:
+  schemas:
+    Task:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        desc_s:
+          type: string
+        desc_l:
+          type: string
+        priority:
+          type: integer
+        owner:
+          type: string
+        dept:
+          type: string
+        customer:
+          type: string
+        requester:
+          type: string
+        area:
+          type: string
+        url:
+          type: string
+        attachment:
+          type: string
+        status:
+          type: string
+        tdt:
+          type: string
+          format: date-time
+        cdt:
+          type: string
+          format: date-time
+        udt:
+          type: string
+          format: date-time
