@@ -1,0 +1,7 @@
+graph TD
+    A[Usuario] -->|Envía datos| B(TaskView)
+    B -->|Solicita operación| C(TaskController)
+    C -->|Consulta/Actualiza| D[(Base de Datos)]
+    D -->|Retorna datos| C
+    C -->|Muestra resultados| B
+    B -->|Muestra información| A
