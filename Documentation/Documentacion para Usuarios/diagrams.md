@@ -2,7 +2,7 @@
 
 El siguiente diagrama muestra los casos de uso principales del sistema y los actores involucrados.
 
-mermaid
+```mermaid
 graph TD
     A[Usuario] -->|Acceder al sistema| B(Acceso con contraseña)
     A -->|Crear tarea| C(Crear Tarea)
